@@ -1,4 +1,4 @@
-package com.nextit.reactplus.token;
+package com.nextit.reactplus.model;
 
 public enum TypeToken {
     BEARER

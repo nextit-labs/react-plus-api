@@ -1,6 +1,6 @@
 package com.nextit.reactplus.config;
 
-import com.nextit.reactplus.token.TokenRepository;
+import com.nextit.reactplus.repository.TokenRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

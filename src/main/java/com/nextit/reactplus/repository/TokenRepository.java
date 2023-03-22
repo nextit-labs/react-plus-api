@@ -1,7 +1,9 @@
-package com.nextit.reactplus.token;
+package com.nextit.reactplus.repository;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.nextit.reactplus.model.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

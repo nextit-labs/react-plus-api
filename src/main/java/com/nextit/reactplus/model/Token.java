@@ -1,6 +1,5 @@
-package com.nextit.reactplus.token;
+package com.nextit.reactplus.model;
 
-import com.nextit.reactplus.model.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -19,11 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Token {
-
-    @Id
-    @GeneratedValue
-    public Integer id;
+public class Token extends AbstractEntity {
 
     @Column(unique = true)
     public String token;
@@ -36,6 +31,6 @@ public class Token {
     public boolean expired;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "idUser")
     public User user;
 }

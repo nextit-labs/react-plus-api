@@ -1,6 +1,5 @@
 package com.nextit.reactplus.model;
 
-import com.nextit.reactplus.token.Token;
 import jakarta.persistence.*;
 
 import java.time.Instant;
@@ -39,10 +38,12 @@ public class User extends AbstractEntity implements UserDetails {
     @Column(name = "photo")
     private String photo;
 
+    /*
     @ManyToOne
     @JoinColumn(name = "company")
-    private Entreprise company;
-
+    private Company company;
+    */
+    
     @Enumerated(EnumType.STRING)
     private TypeRole typeRole;
 

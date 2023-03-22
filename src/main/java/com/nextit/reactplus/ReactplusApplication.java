@@ -11,5 +11,4 @@ public class ReactplusApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ReactplusApplication.class, args);
 	}
-
 }

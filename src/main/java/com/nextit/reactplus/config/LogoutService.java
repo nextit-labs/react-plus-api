@@ -1,6 +1,6 @@
 package com.nextit.reactplus.config;
 
-import com.nextit.reactplus.token.TokenRepository;
+import com.nextit.reactplus.repository.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
