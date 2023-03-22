@@ -1,6 +1,11 @@
-package com.nextit.reactplus.user;
+package com.nextit.reactplus.model;
 
+import com.nextit.reactplus.token.Token;
 import jakarta.persistence.*;
+
+import java.time.Instant;
+import java.util.Collection;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,30 +14,44 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.List;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "_user")
-public class User implements UserDetails {
+@Table(name = "users")
+public class User extends AbstractEntity implements UserDetails {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
-    private String firstName;
-    private String lastName;
+    @Column(name = "firstname")
+    private String firstname;
+    @Column(name = "lastname")
+    private String lastname;
+    @Column(name = "email")
     private String email;
+    @Column(name = "password")
     private String password;
+    @Column(name = "birthday")
+    private Instant birthday;
+
+    @Embedded
+    private Address address;
+
+    @Column(name = "photo")
+    private String photo;
+
+    @ManyToOne
+    @JoinColumn(name = "company")
+    private Entreprise company;
+
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private TypeRole typeRole;
+
+    @OneToMany(mappedBy = "user")
+    private List<Token> tokens;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority(typeRole.name()));
     }
 
     @Override
@@ -41,9 +60,7 @@ public class User implements UserDetails {
     }
 
     @Override
-    public String getUsername() {
-        return email;
-    }
+    public String getUsername() { return email; }
 
     @Override
     public boolean isAccountNonExpired() {
