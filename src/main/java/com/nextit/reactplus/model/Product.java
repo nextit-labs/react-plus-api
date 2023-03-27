@@ -1,34 +1,53 @@
 package com.nextit.reactplus.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import java.time.LocalDate;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.*;
+import java.util.List;
 
-@Getter
-@Setter
-@AllArgsConstructor
+import lombok.*;
+
+@Data
 @NoArgsConstructor
-@ToString
-@EqualsAndHashCode
-@Builder
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "product")
+public class Product extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
-    private String firstname;
-    private String lastname;
-    private LocalDate dateOfBirth;
+    @Column(name = "code_product")
+    private String codeProduct;
 
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "unit_price")
+    private Integer unitPrice;
+
+    @Column(name = "sale_price")
+    private Integer salePrice;
+
+    @Column(name = "discount_rate")
+    private Integer discountRate;
+
+    @Column(name = "status_type")
+    private String statusType;
+
+    @Column(name = "sale_type")
+    private String saleType;
+
+    @ManyToOne
+    @JoinColumn(name = "id_product_brand")
+    private ProductBrand productBrand;
+
+    @ManyToOne
+    @JoinColumn(name = "id_product_category")
+    private ProductCategory productCategory;
+
+    @OneToMany(mappedBy = "product")
+    private List<ProductReview> productReviews;
+
+    @OneToMany(mappedBy = "product")
+    private List<ProductSize> productSizes;
+
+    @Column(name = "image_url")
+    private String imageUrl;
 }

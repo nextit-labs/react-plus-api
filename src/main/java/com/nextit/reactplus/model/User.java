@@ -38,12 +38,10 @@ public class User extends AbstractEntity implements UserDetails {
     @Column(name = "photo")
     private String photo;
 
-    /*
     @ManyToOne
     @JoinColumn(name = "company")
     private Company company;
-    */
-    
+
     @Enumerated(EnumType.STRING)
     private TypeRole typeRole;
 
