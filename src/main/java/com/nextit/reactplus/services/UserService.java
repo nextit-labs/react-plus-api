@@ -1,24 +1,21 @@
 package com.nextit.reactplus.services;
 
-import com.nextit.reactplus.dto.ChangerMotDePasseUtilisateurDto;
+import com.nextit.reactplus.dto.ChangerUserPasswordDto;
 import com.nextit.reactplus.dto.UserDto;
-import com.nextit.reactplus.dto.UtilisateurDto;
 
 import java.util.List;
 
 public interface UserService {
 
-    UserDto save(UtilisateurDto dto);
+    UserDto save(UserDto dto);
 
-    UtilisateurDto findById(Integer id);
+    UserDto findById(Integer id);
 
-    List<UtilisateurDto> findAll();
+    List<UserDto> findAll();
 
     void delete(Integer id);
 
-    UtilisateurDto findByEmail(String email);
+    UserDto findByEmail(String email);
 
-    UtilisateurDto changerMotDePasse(ChangerMotDePasseUtilisateurDto dto);
-
-
+    UserDto changerPassword(ChangerUserPasswordDto dto);
 }
