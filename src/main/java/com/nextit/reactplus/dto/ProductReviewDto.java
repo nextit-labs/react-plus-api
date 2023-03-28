@@ -7,7 +7,7 @@ import lombok.*;
 @Data
 @Builder
 public class ProductReviewDto {
-
+    private Integer id;
     private ReviewType reviewType;
     private String bestReviewYn;
     private String colorReview;
@@ -27,6 +27,7 @@ public class ProductReviewDto {
         }
 
         return ProductReviewDto.builder()
+                .id(productReview.getId())
                 .reviewType(productReview.getReviewType())
                 .bestReviewYn(productReview.getBestReviewYn())
                 .colorReview(productReview.getColorReview())
@@ -47,6 +48,7 @@ public class ProductReviewDto {
             return null;
         }
         ProductReview productReview = new ProductReview();
+        productReview.setId(productReviewDto.getId());
         productReview.setReviewType(productReviewDto.getReviewType());
         productReview.setBestReviewYn(productReviewDto.getBestReviewYn());
         productReview.setColorReview(productReviewDto.getColorReview());

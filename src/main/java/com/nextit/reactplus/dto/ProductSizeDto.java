@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 @Builder
 public class ProductSizeDto {
-
+    private Integer id;
     private String name;
     private String stock;
     private ProductDto product;
@@ -17,6 +17,7 @@ public class ProductSizeDto {
         }
 
         return ProductSizeDto.builder()
+                .id(productSize.getId())
                 .name(productSize.getName())
                 .stock(productSize.getStock())
                 .product(ProductDto.fromEntity(productSize.getProduct()))
@@ -28,6 +29,7 @@ public class ProductSizeDto {
             return null;
         }
         ProductSize productSize = new ProductSize();
+        productSize.setId(productSizeDto.getId());
         productSize.setName(productSizeDto.getName());
         productSize.setStock(productSizeDto.getStock());
         productSize.setProduct(ProductDto.toEntity(productSizeDto.getProduct()));

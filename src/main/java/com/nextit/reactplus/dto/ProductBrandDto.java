@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @Builder
 public class ProductBrandDto {
-
+    private Integer id;
     private String codeBrand;
     private String name;
     private String engName;
@@ -22,6 +22,7 @@ public class ProductBrandDto {
         }
 
         return ProductBrandDto.builder()
+                .id(productBrand.getId())
                 .codeBrand(productBrand.getCodeBrand())
                 .name(productBrand.getName())
                 .engName(productBrand.getEngName())
@@ -35,6 +36,7 @@ public class ProductBrandDto {
             return null;
         }
         ProductBrand productBrand = new ProductBrand();
+        productBrand.setId(productBrandDto.getId());
         productBrand.setCodeBrand(productBrandDto.getCodeBrand());
         productBrand.setName(productBrandDto.getName());
         productBrand.setEngName(productBrandDto.getEngName());

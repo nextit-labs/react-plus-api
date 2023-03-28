@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 @Builder
 public class ProductSupplierDto {
-
+    private Integer id;
     private String codeSupplier;
 
     private String name;
@@ -17,6 +17,7 @@ public class ProductSupplierDto {
         }
 
         return ProductSupplierDto.builder()
+                .id(productSupplier.getId())
                 .codeSupplier(productSupplier.getCodeSupplier())
                 .name(productSupplier.getName())
                 .build();
@@ -27,6 +28,7 @@ public class ProductSupplierDto {
             return null;
         }
         ProductSupplier productSupplier = new ProductSupplier();
+        productSupplier.setId(productSupplierDto.getId());
         productSupplier.setCodeSupplier(productSupplierDto.getCodeSupplier());
         productSupplier.setName(productSupplierDto.getName());
 

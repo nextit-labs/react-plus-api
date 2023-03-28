@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 @Builder
 public class ProductDto {
-
+    private Integer id;
     private String codeProduct;
     private String name;
     private Integer unitPrice;
@@ -24,6 +24,7 @@ public class ProductDto {
         }
 
         return ProductDto.builder()
+                .id(product.getId())
                 .codeProduct(product.getCodeProduct())
                 .name(product.getName())
                 .unitPrice(product.getUnitPrice())
@@ -42,6 +43,7 @@ public class ProductDto {
             return null;
         }
         Product product = new Product();
+        product.setId(productDto.getId());
         product.setCodeProduct(productDto.getCodeProduct());
         product.setName(productDto.getName());
         product.setUnitPrice(productDto.getUnitPrice());
