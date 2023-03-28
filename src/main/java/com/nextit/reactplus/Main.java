@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-public class ReactplusApplication {
+public class Main {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReactplusApplication.class, args);
+		SpringApplication.run(Main.class, args);
 	}
 }
