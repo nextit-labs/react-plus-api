@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.nextit.reactplus.utils.Constants.APP_ROOT;
+import static com.nextit.reactplus.utils.Constants.PRODUCT_ENDPOINT;
 
 @Api("products")
 public interface ProductReviewApi {
 
-    @PostMapping(value = APP_ROOT + "/products/reviews/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = PRODUCT_ENDPOINT + "/reviews/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
             value = "상품리뷰 저장",
             notes = "이 방법을 사용하면 상품리뷰를 저장하거나 수정할 수 있습니다.",
@@ -28,7 +28,7 @@ public interface ProductReviewApi {
     })
     ProductReviewDto save(@RequestBody ProductReviewDto dto);
 
-    @GetMapping(value = APP_ROOT + "/products/reviews/{idProductReview}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = PRODUCT_ENDPOINT + "/reviews/{idProductReview}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
             value = "상품리뷰 아이디로 상품리뷰 검색",
             notes = "이 방법을 사용하면 상품리뷰 아이디로 상품리뷰를 검색할 수 있습니다.",
@@ -39,7 +39,7 @@ public interface ProductReviewApi {
     })
     ProductReviewDto findById(@PathVariable("idProductReview") Integer id);
 
-    @GetMapping(value = APP_ROOT + "/products/reviews/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = PRODUCT_ENDPOINT + "/reviews/all", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
             value = "상품리뷰 목록을 반환합니다.",
             notes = "이 방법을 사용하면 존재하는 상품리뷰 목록을 검색하고 반환할 수 있습니다.",
@@ -49,7 +49,7 @@ public interface ProductReviewApi {
     })
     List<ProductReviewDto> findAll();
 
-    @DeleteMapping(value = APP_ROOT + "/products/reviews/delete/{idProductReview}")
+    @DeleteMapping(value = PRODUCT_ENDPOINT + "/reviews/delete/{idProductReview}")
     @ApiOperation(
             value = "상품리뷰 삭제",
             notes = "이 방법을 사용하면 상품리뷰 아이디로 상품리뷰를 삭제할 수 있습니다.")

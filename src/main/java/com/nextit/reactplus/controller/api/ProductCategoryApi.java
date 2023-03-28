@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.nextit.reactplus.utils.Constants.APP_ROOT;
+import static com.nextit.reactplus.utils.Constants.PRODUCT_ENDPOINT;
 
 @Api("products")
 public interface ProductCategoryApi {
 
-    @PostMapping(value = APP_ROOT + "/products/categories/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = PRODUCT_ENDPOINT + "/categories/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
             value = "상품 카테고리 등록",
             notes = "이 방법을 사용하면 상품 카테고리를 저장하거나 수정할 수 있습니다.",
@@ -26,7 +26,7 @@ public interface ProductCategoryApi {
     })
     ProductCategoryDto save(@RequestBody ProductCategoryDto dto);
 
-    @GetMapping(value = APP_ROOT + "/products/categories/{idProductCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = PRODUCT_ENDPOINT + "/categories/{idProductCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
             value = "아이디로 상품 카테고리 검색",
             notes = "이 방법을 사용하면 해당 ID로 상품 카테고리를 검색할 수 있습니다.",
@@ -37,7 +37,7 @@ public interface ProductCategoryApi {
     })
     ProductCategoryDto findById(@PathVariable("idProductCategory") Integer idProductCategory);
 
-    @GetMapping(value = APP_ROOT + "/products/categories/filter/{codeProductCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = PRODUCT_ENDPOINT + "/categories/filter/{codeProductCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
             value = "상품 코드로 카테고리 검색",
             notes = "이 방법을 사용하면 상품 코드로 카테고리를 검색할 수 있습니다.",
@@ -48,7 +48,7 @@ public interface ProductCategoryApi {
     })
     ProductCategoryDto findByCode(@PathVariable("codeProductCategory") String codeProductCategory);
 
-    @GetMapping(value = APP_ROOT + "/products/categories/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = PRODUCT_ENDPOINT + "/categories/all", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
             value = "상품 카테고리 목록을 반환합니다.",
             notes = "이 메소드를 사용하면 데이터베이스에 존재하는 상품 카테고리 목록을 검색하고 반환할 수 있습니다.",
@@ -58,7 +58,7 @@ public interface ProductCategoryApi {
     })
     List<ProductCategoryDto> findAll();
 
-    @DeleteMapping(value = APP_ROOT + "/products/categories/delete/{idProductCategory}")
+    @DeleteMapping(value = PRODUCT_ENDPOINT + "/categories/delete/{idProductCategory}")
     @ApiOperation(
             value = "상품 카테고리 삭제",
             notes = "이 방법을 사용하면 ID별로 상품 카테고리를 삭제할 수 있습니다.")
