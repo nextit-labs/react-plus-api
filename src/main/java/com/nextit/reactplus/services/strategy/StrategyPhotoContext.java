@@ -30,6 +30,7 @@ public class StrategyPhotoContext {
     private void determinContext(String context) {
         final String beanName = context + "Strategy";
         switch (context) {
+            /*
             case "article":
                 strategy = beanFactory.getBean(beanName, SaveArticlePhoto.class);
                 break;
@@ -42,8 +43,9 @@ public class StrategyPhotoContext {
             case "entreprise" :
                 strategy = beanFactory.getBean(beanName, SaveEntreprisePhoto.class);
                 break;
-            case "utilisateur" :
-                strategy = beanFactory.getBean(beanName, SaveUtilisateurPhoto.class);
+                */
+            case "user" :
+                strategy = beanFactory.getBean(beanName, SaveUserPhoto.class);
                 break;
             default: throw new InvalidOperationException("사진 저장을 위한 알 수 없는 배경", ErrorCodes.UNKNOWN_CONTEXT);
         }

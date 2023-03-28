@@ -14,7 +14,7 @@ public class RolesDto {
     private String roleName;
 
     @JsonIgnore
-    private UtilisateurDto utilisateur;
+    private UserDto user;
 
     public static RolesDto fromEntity(Roles roles) {
         if (roles == null) {
@@ -33,7 +33,7 @@ public class RolesDto {
         Roles roles = new Roles();
         roles.setId(dto.getId());
         roles.setRoleName(dto.getRoleName());
-        roles.setUtilisateur(UtilisateurDto.toEntity(dto.getUtilisateur()));
+        roles.setUser(UserDto.toEntity(dto.getUser()));
         return roles;
     }
 

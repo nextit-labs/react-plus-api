@@ -1,12 +1,8 @@
 package com.nextit.reactplus.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nextit.reactplus.model.Company;
-import com.nextit.reactplus.model.Entreprise;
 import lombok.Builder;
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 @Builder
