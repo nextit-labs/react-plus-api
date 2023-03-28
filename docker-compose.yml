@@ -13,9 +13,9 @@ services:
     networks:
       - db
     restart: unless-stopped
-  reactplus:
-    container_name: reactplus-api
-    image: next-it/reactplus-api
+  react-plus-api:
+    container_name: react-plus-api
+    image: next-it/react-plus-api
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/react-plus
     ports:
