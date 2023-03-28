@@ -1,10 +1,7 @@
 package com.nextit.reactplus.dto;
 
 import com.nextit.reactplus.model.*;
-import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
 
 @Data
 @Builder

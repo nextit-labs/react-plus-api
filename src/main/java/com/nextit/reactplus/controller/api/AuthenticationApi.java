@@ -18,4 +18,7 @@ public interface AuthenticationApi {
 
     @PostMapping(AUTHENTICATION_ENDPOINT + "/authenticate")
     AuthenticationResponse authenticate(@RequestBody AuthenticationRequest request);
+
+    @PostMapping(AUTHENTICATION_ENDPOINT + "/login")
+    ResponseEntity<?> login(@RequestBody AuthenticationRequest request);
 }
