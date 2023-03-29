@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8088
 
 aws:
   region: ap-northeast-2
@@ -9,7 +9,7 @@ aws:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/react-plus
+    url: jdbc:postgresql://1.234.2.79:5432/react-plus
     username: postgres
     password: 1004
     driver-class-name: org.postgresql.Driver
