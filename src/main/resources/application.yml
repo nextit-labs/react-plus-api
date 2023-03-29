@@ -9,7 +9,7 @@ aws:
 
 spring:
   datasource:
-    url: jdbc:postgresql://1.234.2.79:5443/react-plus
+    url: jdbc:postgresql://1.234.2.79:5443/postgres
     username: postgres
     password: nextit123!@#
     driver-class-name: org.postgresql.Driver
