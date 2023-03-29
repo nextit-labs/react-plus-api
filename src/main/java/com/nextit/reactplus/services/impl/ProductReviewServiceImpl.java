@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class ProductReviewServiceImpl implements ProductReviewService {
 
-    private ProductReviewRepository productReviewRepository;
+    private final ProductReviewRepository productReviewRepository;
 
     @Autowired
     public ProductReviewServiceImpl(
@@ -31,7 +31,8 @@ public class ProductReviewServiceImpl implements ProductReviewService {
         List<String> errors = ProductReviewValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("상품리뷰가 유효하지 않습니다 {}", dto);
-            throw new InvalidEntityException("항목이 잘못되었습니다.", ErrorCodes.ARTICLE_NOT_VALID, errors);
+            throw new InvalidEntityException("항목이 잘못되었습니다.",
+                    ErrorCodes.PRODUCT_NOT_VALID, errors);
         }
 
         return ProductReviewDto.fromEntity(
@@ -51,7 +52,7 @@ public class ProductReviewServiceImpl implements ProductReviewService {
         return productReviewRepository.findById(id).map(ProductReviewDto::fromEntity).orElseThrow(() ->
                 new EntityNotFoundException(
                         id + "인 상품리뷰가 데이터베이스에서 발견되지 않았습니다.",
-                        ErrorCodes.ARTICLE_NOT_FOUND)
+                        ErrorCodes.PRODUCT_NOT_FOUND)
         );
     }
 

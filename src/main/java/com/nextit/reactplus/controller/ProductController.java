@@ -5,6 +5,7 @@ import com.nextit.reactplus.dto.*;
 import com.nextit.reactplus.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -40,30 +41,19 @@ public class ProductController implements ProductApi {
         return productService.findAll();
     }
 
-    /*
-    @Override
-    public List<LigneVenteDto> findHistoriqueVentes(Integer idArticle) {
-        return articleService.findHistoriqueVentes(idArticle);
-    }
-
-    @Override
-    public List<LigneCommandeClientDto> findHistoriaueCommandeClient(Integer idArticle) {
-        return articleService.findHistoriaueCommandeClient(idArticle);
-    }
-
-    @Override
-    public List<LigneCommandeFournisseurDto> findHistoriqueCommandeFournisseur(Integer idArticle) {
-        return articleService.findHistoriqueCommandeFournisseur(idArticle);
-    }
-
-    @Override
-    public List<ArticleDto> findAllArticleByIdCategory(Integer idCategory) {
-        return articleService.findAllArticleByIdCategory(idCategory);
-    }
-    */
-
     @Override
     public void delete(Integer id) {
         productService.delete(id);
+    }
+
+
+    @Override
+    public void uploadProductImage(Integer productId, MultipartFile file) {
+        productService.uploadProductImage(productId, file);
+    }
+
+    @Override
+    public byte[] getProductImage(Integer productId) {
+        return productService.getProductImage(productId);
     }
 }

@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -60,20 +61,6 @@ public interface ProductApi {
     })
     List<ProductDto> findAll();
 
-    /*
-    @GetMapping(value = APP_ROOT + "/products/historique/vente/{idArticle}", produces = MediaType.APPLICATION_JSON_VALUE)
-    List<LigneVenteDto> findHistoriqueVentes(@PathVariable("idArticle") Integer idArticle);
-
-    @GetMapping(value = APP_ROOT + "/products/historique/commandeclient/{idArticle}", produces = MediaType.APPLICATION_JSON_VALUE)
-    List<LigneCommandeClientDto> findHistoriaueCommandeClient(@PathVariable("idArticle") Integer idArticle);
-
-    @GetMapping(value = APP_ROOT + "/products/historique/commandefournisseur/{idArticle}", produces = MediaType.APPLICATION_JSON_VALUE)
-    List<LigneCommandeFournisseurDto> findHistoriqueCommandeFournisseur(@PathVariable("idArticle") Integer idArticle);
-
-    @GetMapping(value = APP_ROOT + "/products/filter/category/{idCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
-    List<ProductDto> findAllArticleByIdCategory(@PathVariable("idCategory") Integer idCategory);
-    */
-
     @DeleteMapping(value = PRODUCT_ENDPOINT + "/delete/{idProduct}")
     @ApiOperation(
             value = "상품 삭제",
@@ -83,4 +70,14 @@ public interface ProductApi {
     })
     void delete(@PathVariable("idProduct") Integer id);
 
+    @PostMapping(
+            value = PRODUCT_ENDPOINT + "{idProduct}/product-image",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+    )
+    void uploadProductImage(
+            @PathVariable("idProduct") Integer productId,
+            @RequestParam("file") MultipartFile file);
+
+    @GetMapping(PRODUCT_ENDPOINT + "{idProduct}/profile-image")
+    byte[] getProductImage(@PathVariable("idProduct") Integer productId);
 }
