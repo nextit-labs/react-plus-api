@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.nextit.reactplus.utils.Constants.APP_ROOT;
+import static com.nextit.reactplus.utils.Constants.PRODUCT_ENDPOINT;
 
 @Api("products")
 public interface ProductApi {
 
-    @PostMapping(value = APP_ROOT + "/products/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = PRODUCT_ENDPOINT + "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
             value = "상품 저장",
             notes = "이 방법을 사용하면 상품을 저장하거나 수정할 수 있습니다.",
@@ -28,7 +28,7 @@ public interface ProductApi {
     })
     ProductDto save(@RequestBody ProductDto dto);
 
-    @GetMapping(value = APP_ROOT + "/products/{idProduct}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = PRODUCT_ENDPOINT + "/{idProduct}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
             value = "상품 아이디로 상품 검색",
             notes = "이 방법을 사용하면 ID로 상품을 검색할 수 있습니다.",
@@ -39,7 +39,7 @@ public interface ProductApi {
     })
     ProductDto findById(@PathVariable("idProduct") Integer id);
 
-    @GetMapping(value = APP_ROOT + "/products/filter/{codeProduct}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = PRODUCT_ENDPOINT + "/filter/{codeProduct}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
             value = "상품 코드로 상품 검색",
             notes = "이 방법을 사용하면 상품 코드로 상품을 검색할 수 있습니다.",
@@ -50,7 +50,7 @@ public interface ProductApi {
     })
     ProductDto findByCodeProduct(@PathVariable("codeProduct") String codeProduct);
 
-    @GetMapping(value = APP_ROOT + "/products/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = PRODUCT_ENDPOINT + "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
             value = "상품 목록을 반환합니다.",
             notes = "이 방법을 사용하면 존재하는 상품 목록을 검색하고 반환할 수 있습니다.",
@@ -74,7 +74,7 @@ public interface ProductApi {
     List<ProductDto> findAllArticleByIdCategory(@PathVariable("idCategory") Integer idCategory);
     */
 
-    @DeleteMapping(value = APP_ROOT + "/products/delete/{idProduct}")
+    @DeleteMapping(value = PRODUCT_ENDPOINT + "/delete/{idProduct}")
     @ApiOperation(
             value = "상품 삭제",
             notes = "이 방법을 사용하면 상품 아이디로 상품을를 삭제할 수 있습니다.")

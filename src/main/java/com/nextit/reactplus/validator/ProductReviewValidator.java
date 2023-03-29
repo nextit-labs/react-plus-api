@@ -1,6 +1,5 @@
 package com.nextit.reactplus.validator;
 
-import com.nextit.reactplus.dto.ArticleDto;
 import com.nextit.reactplus.dto.ProductReviewDto;
 import org.springframework.util.StringUtils;
 

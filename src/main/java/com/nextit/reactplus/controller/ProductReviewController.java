@@ -1,9 +1,7 @@
 package com.nextit.reactplus.controller;
 
-import com.nextit.reactplus.controller.api.ArticleApi;
 import com.nextit.reactplus.controller.api.ProductReviewApi;
 import com.nextit.reactplus.dto.*;
-import com.nextit.reactplus.services.ArticleService;
 import com.nextit.reactplus.services.ProductReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
