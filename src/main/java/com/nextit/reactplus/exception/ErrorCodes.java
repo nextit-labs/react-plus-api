@@ -2,17 +2,17 @@ package com.nextit.reactplus.exception;
 
 public enum ErrorCodes {
 
-    ARTICLE_NOT_FOUND(1000),
-    ARTICLE_NOT_VALID(1001),
-    ARTICLE_ALREADY_IN_USE(1002),
+    USER_NOT_FOUND(1000),
+    USER_NOT_VALID(1001),
+    USER_ALREADY_IN_USE(1002),
 
     CATEGORY_NOT_FOUND(2000),
     CATEGORY_NOT_VALID(2001),
     CATEGORY_ALREADY_IN_USE(2002),
 
-    CLIENT_NOT_FOUND(3000),
-    CLIENT_NOT_VALID(3001),
-    CLIENT_ALREADY_IN_USE(3002),
+    PRODUCT_NOT_FOUND(3000),
+    PRODUCT_NOT_VALID(3001),
+    PRODUCT_ALREADY_IN_USE(3002),
 
     COMMANDE_CLIENT_NOT_FOUND(4000),
     COMMANDE_CLIENT_NOT_VALID(4001),
@@ -54,7 +54,7 @@ public enum ErrorCodes {
     UNKNOWN_CONTEXT(14001)
     ;
 
-    private int code;
+    private final int code;
 
     ErrorCodes(int code) {
         this.code = code;
