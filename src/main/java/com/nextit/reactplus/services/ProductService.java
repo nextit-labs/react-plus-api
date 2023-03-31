@@ -20,4 +20,6 @@ public interface ProductService {
     void uploadProductImage(Integer productId, MultipartFile file);
 
     byte[] getProductImage(Integer productId);
+
+    List<ProductDto> findAll(String filter, String[] range, String[] sort);
 }

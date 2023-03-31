@@ -46,7 +46,6 @@ public class ProductController implements ProductApi {
         productService.delete(id);
     }
 
-
     @Override
     public void uploadProductImage(Integer productId, MultipartFile file) {
         productService.uploadProductImage(productId, file);
@@ -55,5 +54,10 @@ public class ProductController implements ProductApi {
     @Override
     public byte[] getProductImage(Integer productId) {
         return productService.getProductImage(productId);
+    }
+
+    @Override
+    public List<ProductDto> findAll(String filter, String[] range, String[] sort) {
+        return productService.findAll(filter, range, sort);
     }
 }

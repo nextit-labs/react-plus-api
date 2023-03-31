@@ -10,11 +10,18 @@ import com.nextit.reactplus.exception.InvalidOperationException;
 import com.nextit.reactplus.repository.ProductRepository;
 import com.nextit.reactplus.services.ProductService;
 import com.nextit.reactplus.validator.ProductValidator;
+import com.nextit.reactplus.utils.SearchOptions;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 
 import java.io.IOException;
 import java.util.List;
@@ -162,5 +169,33 @@ public class ProductServiceImpl implements ProductService {
                     "[%s] 상품을 찾을 수 없습니다".formatted(productId),
                     ErrorCodes.PRODUCT_NOT_FOUND);
         }
+    }
+
+    /*
+    @Override
+    public List<ProductDto> findAll() {
+        return productRepository.findAll().stream()
+                .map(ProductDto::fromEntity)
+                .collect(Collectors.toList());
+    }
+    */
+
+    @Override
+    public List<ProductDto> findAll(String filter, String[] range, String[] sort ) {
+
+        List<Order> orders = SearchOptions.sortOrders(sort);
+      //  Pageable pagingSort = PageRequest.of(page, size, Sort.by(orders));
+
+        return productRepository.findAll(Sort.by(orders))
+                .stream()
+                .map(ProductDto::fromEntity)
+                .collect(Collectors.toList());
+
+        /*
+        return productRepository.getList().stream()
+                .map(ProductDto::fromEntity)
+                .collect(Collectors.toList());
+
+         */
     }
 }

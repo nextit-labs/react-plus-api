@@ -5,6 +5,8 @@ import com.nextit.reactplus.dto.auth.AuthenticationRequest;
 import com.nextit.reactplus.dto.auth.AuthenticationResponse;
 import com.nextit.reactplus.dto.auth.RegisterRequest;
 import com.nextit.reactplus.model.*;
+import com.nextit.reactplus.model.type.TypeRole;
+import com.nextit.reactplus.model.type.TypeToken;
 import com.nextit.reactplus.repository.*;
 import com.nextit.reactplus.services.AuthenticationService;
 import lombok.extern.slf4j.Slf4j;

@@ -1,5 +1,6 @@
 package com.nextit.reactplus.model;
 
+import com.nextit.reactplus.model.type.TypeRole;
 import jakarta.persistence.*;
 
 import java.time.Instant;

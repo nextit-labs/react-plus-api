@@ -1,4 +1,4 @@
-package com.nextit.reactplus.model;
+package com.nextit.reactplus.model.type;
 
 public enum TypeRole {
 

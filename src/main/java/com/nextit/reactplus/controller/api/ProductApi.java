@@ -80,4 +80,18 @@ public interface ProductApi {
 
     @GetMapping(PRODUCT_ENDPOINT + "{idProduct}/profile-image")
     byte[] getProductImage(@PathVariable("idProduct") Integer productId);
+
+    @GetMapping(value = PRODUCT_ENDPOINT + "/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(
+            value = "상품 목록을 반환합니다.",
+            notes = "이 방법을 사용하면 존재하는 상품 목록을 검색하고 반환할 수 있습니다.",
+            responseContainer = "List<ProductDto>")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "상품 목록 / 빈 목록")
+    })
+    List<ProductDto> findAll(
+            @RequestParam(value = "filter", required = false) String filter,
+            @RequestParam(value = "range", defaultValue = "0,24") String[] range,
+            @RequestParam(value = "sort", defaultValue = "id,desc") String[] sort
+    );
 }
